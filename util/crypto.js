@@ -25,7 +25,6 @@ const rsaEncrypt = (buffer, key) => {
 
 const weapi = (object) => {
   const text = JSON.stringify(object)
-  console.log(text)
   const secretKey = crypto
     .randomBytes(16)
     .map((n) => base62.charAt(n % 62).charCodeAt())
@@ -44,7 +43,6 @@ const weapi = (object) => {
 
 const linuxapi = (object) => {
   const text = JSON.stringify(object)
-  console.log(text)
   return {
     eparams: aesEncrypt(Buffer.from(text), 'ecb', linuxapiKey, '')
       .toString('hex')
@@ -54,7 +52,6 @@ const linuxapi = (object) => {
 
 const eapi = (url, object) => {
   const text = typeof object === 'object' ? JSON.stringify(object) : object
-  console.log(text)
   const message = `nobody${url}use${text}md5forencrypt`
   const digest = crypto.createHash('md5').update(message).digest('hex')
   const data = `${url}-36cd479b6b5-${text}-36cd479b6b5-${digest}`

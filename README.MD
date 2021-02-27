@@ -3,7 +3,7 @@
 网易云音乐 Node.js API service
 
 ## Source
-![netease-music-api](https://github.com/Binaryify/NeteaseCloudMusicApi/)
+[netease-music-api](https://github.com/Binaryify/NeteaseCloudMusicApi/)
 
 ## 环境要求
 
