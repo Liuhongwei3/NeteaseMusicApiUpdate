@@ -3,9 +3,6 @@
 const crypto = require('crypto')
 const { cookieToJson } = require('../util/index')
 module.exports = (query, request) => {
-  if (typeof query.cookie === 'string') {
-    query.cookie = cookieToJson(query.cookie)
-  }
   if (!('MUSIC_U' in query.cookie))
     query.cookie._ntes_nuid = crypto.randomBytes(16).toString('hex')
   query.cookie.os = 'pc'
