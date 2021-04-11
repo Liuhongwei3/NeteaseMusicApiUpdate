@@ -1405,3 +1405,11 @@ export function user_bindingcellphone(
     password?: string
   } & RequestBaseConfig,
 ): Promise<Response>
+
+export function user_comment_history(
+  params: {
+    limit?: number | string
+    uid: number | string
+    time?: number | string
+  } & RequestBaseConfig,
+): Promise<Response>
