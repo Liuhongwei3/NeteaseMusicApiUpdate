@@ -60,6 +60,8 @@ const createRequest = (method, url, data, options) => {
       headers['X-Real-IP'] = options.realIP
     }
 
+    headers['X-Real-IP'] = '211.161.244.70'
+
     // handle cookie
     if (typeof options.cookie === 'object') {
       headers['Cookie'] = Object.keys(options.cookie)
