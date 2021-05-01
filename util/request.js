@@ -189,9 +189,12 @@ const createRequest = (method, url, data, options) => {
         axios(settings)
             .then((res) => {
                 const body = res.data;
+				const corsCookie = ' SameSite=None; Secure=true';
+
                 answer.cookie = (res.headers['set-cookie'] || []).map((x) =>
                     x.replace(/\s*Domain=[^(;|$)]+;*/, ''),
-                );
+                ).map(cook => cook + corsCookie);
+
                 try {
                     answer.body =
                         options.crypto === 'eapi'
@@ -199,6 +202,7 @@ const createRequest = (method, url, data, options) => {
                             : body;
 
                     answer.status = answer.body.code || res.status;
+					
                     if (
                         [201, 302, 400, 502, 800, 801, 802, 803].indexOf(
                             answer.body.code,
