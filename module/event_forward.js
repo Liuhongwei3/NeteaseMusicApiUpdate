@@ -7,6 +7,7 @@ module.exports = (query, request) => {
     id: query.evId,
     eventUserId: query.uid,
   }
+  console.log(query)
   return request('POST', `https://music.163.com/weapi/event/forward`, data, {
     crypto: 'weapi',
     cookie: query.cookie,
